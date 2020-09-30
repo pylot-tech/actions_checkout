@@ -27,3 +27,19 @@ for i in "${ARRA[@]}"; do
         git clone --depth 1 -b ${ARRB[1]} https://${HTTPS_PAT}@github.com/pylot-tech/${ARRB[0]}.git ./src/${ARRB[0]} 
     fi    
 done
+
+cd ./src
+echo "" > versions.log
+for D in *; do
+    if [ -d "${D}" ]; then        
+        cd ${D}
+        NAME=$(basename `git rev-parse --show-toplevel`)
+        BRANCH=$(git rev-parse --abbrev-ref HEAD)
+        REF=$(git rev-parse HEAD)
+        printf "%20s; %30s; %41s" $NAME $BRANCH $REF >> ../versions.log
+        echo "" >> ../versions.log
+        # git fetch        
+        cd ..
+    fi
+done
+cat versions.log
