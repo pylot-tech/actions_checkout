@@ -2,7 +2,7 @@
 
 if [ "${EVENT_NAME}" = "push" ] || [ "${EVENT_NAME}" = "schedule" ]
 then
-    BRANCH=$(echo ${REF} | sed 's/\/refs\/heads\///g')
+    BRANCH=$(echo ${REF} | sed 's/refs\/heads\///g')
     # IFS='/' read -ra ARRD <<< "${REF}"
     # this fetches the last element of the array.
     # BRANCH=${ARRD[${#ARRD[@]}-1]}
