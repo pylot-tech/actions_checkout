@@ -2,9 +2,10 @@
 
 if [ "${EVENT_NAME}" = "push" ] || [ "${EVENT_NAME}" = "schedule" ]
 then
-    IFS='/' read -ra ARRD <<< "${REF}"
+    BRANCH=$(echo ${REF} | sed 's/\/refs\/heads\///g')
+    # IFS='/' read -ra ARRD <<< "${REF}"
     # this fetches the last element of the array.
-    BRANCH=${ARRD[${#ARRD[@]}-1]}
+    # BRANCH=${ARRD[${#ARRD[@]}-1]}
 elif [ "${EVENT_NAME}" = "pull_request" ]
 then
     BRANCH=${HEAD_REF}
