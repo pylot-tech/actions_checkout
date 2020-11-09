@@ -14,8 +14,8 @@ else
 fi
 
 # Clone the main repo (that is subject of the build)
+# And copy the sonarqube config file for that repo
 IFS='/' read -ra ARRC <<< "${REPOSITORY}"
-
 # github sometimes times out on the initial clone attempt.
 # let's just try again a few times in this case.
 n=0
@@ -25,8 +25,7 @@ do
    n=$((n+1)) 
    sleep 5
 done
-
-
+cp ./src/${ARRC[1]}/sonar/sonar-project.properties . 2>/dev/null || :
 
 IFS=';' read -ra ARRA <<< "${TALOS_DEPS}"
 
