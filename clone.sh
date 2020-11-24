@@ -13,6 +13,11 @@ else
     exit 0
 fi
 
+if [ "${REF}" = "refs/tags/stabletag" ]
+then
+    BRANCH=stabletag
+fi
+
 # Clone the main repo (that is subject of the build)
 # And copy the sonarqube config file for that repo
 IFS='/' read -ra ARRC <<< "${REPOSITORY}"
