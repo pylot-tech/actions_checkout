@@ -3,5 +3,5 @@ description: "Clone one or more repos specified by an env variable."
 runs:
   using: "composite"
   steps:
-    - run: /__w/_actions/pylot-tech/actions_checkout/v1/clone.sh
+    - run: /__w/_actions/fernride/actions_checkout/v1/clone.sh
       shell: bash

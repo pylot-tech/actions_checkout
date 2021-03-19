@@ -41,7 +41,7 @@ for i in "${ARRA[@]}"; do
         n=0
         until [ "$n" -ge 5 ]
         do
-            git clone --depth 1 https://${HTTPS_PAT}@github.com/pylot-tech/${ARRB[0]}.git ./src/${ARRB[0]} && break
+            git clone --depth 1 https://${HTTPS_PAT}@github.com/fernride/${ARRB[0]}.git ./src/${ARRB[0]} && break
             n=$((n+1)) 
             sleep 5
         done
@@ -50,7 +50,7 @@ for i in "${ARRA[@]}"; do
         n=0
         until [ "$n" -ge 5 ]
         do
-            git clone --depth 1 -b ${ARRB[1]} https://${HTTPS_PAT}@github.com/pylot-tech/${ARRB[0]}.git ./src/${ARRB[0]} && break
+            git clone --depth 1 -b ${ARRB[1]} https://${HTTPS_PAT}@github.com/fernride/${ARRB[0]}.git ./src/${ARRB[0]} && break
             n=$((n+1)) 
             sleep 5
         done 
